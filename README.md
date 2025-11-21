@@ -1,4 +1,4 @@
-# Proyecto_X_NLP · NLP para Detección de Mensajes de Odio
+# Proyecto: NLP para Detección de Mensajes de Odio 
 
 Repositorio académico para un proyecto de **Data Scientist / AI Developer** centrado en **Procesamiento de Lenguaje Natural (NLP)** y **Análisis de Sentimientos / Detección de discurso de odio** en comentarios de una red social.
 
