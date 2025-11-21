@@ -27,7 +27,7 @@ El objetivo es diseñar, entrenar e implementar un modelo capaz de **detectar au
 👥 Autores
     
 - [José Andrés Lazaroth Núñez](https://github.com/Lazaroth93)  
-- [Monica Gómez González](https://github.com/monigogo)   
+- [Mónica Gómez González](https://github.com/monigogo)   
 - [Yeder Johansen Pimentel Tapia](https://github.com/Yedpt)
 - [Alfonso Bermúdez Torres](https://github.com/GHalfbbt)
 
