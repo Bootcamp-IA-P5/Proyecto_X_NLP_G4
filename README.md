@@ -1,4 +1,5 @@
-# Proyecto: NLP para Detección de Mensajes de Odio 
+# Proyecto NLP para Detección de Mensajes de Odio 
+<img width="11520" height="3456" alt="424981434-aa8ae666-25aa-416c-8be4-58e1af7a00c6" src="https://github.com/user-attachments/assets/7f7c8f7d-9a6a-403c-a9fb-9cd789f66fa1" />
 
 Repositorio académico para un proyecto de **Data Scientist / AI Developer** centrado en **Procesamiento de Lenguaje Natural (NLP)** y **Análisis de Sentimientos / Detección de discurso de odio** en comentarios de una red social.
 
