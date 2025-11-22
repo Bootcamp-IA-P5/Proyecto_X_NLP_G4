@@ -24,10 +24,150 @@ El objetivo es diseñar, entrenar e implementar un modelo capaz de **detectar au
 
 ---
 
-👥 Autores
+## 📁 Estructura del Proyecto
+
+```
+Proyecto_X_NLP_G4/
+├── data/                    # Directorio de datos
+│   ├── raw/                # Datos originales
+│   ├── processed/          # Datos procesados
+│   └── README.md           # Documentación de datos
+├── notebooks/              # Jupyter notebooks
+│   ├── 01_EDA.ipynb       # Análisis Exploratorio de Datos
+│   └── README.md          # Guía de notebooks
+├── src/                    # Código fuente
+│   └── data_loader.py     # Utilidades para cargar datos
+├── requirements.txt        # Dependencias del proyecto
+├── .gitignore             # Archivos a ignorar en git
+└── README.md              # Este archivo
+```
+
+## 🚀 Comenzando
+
+### Prerrequisitos
+
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
+- Jupyter Notebook o JupyterLab
+
+### Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/Bootcamp-IA-P5/Proyecto_X_NLP_G4.git
+   cd Proyecto_X_NLP_G4
+   ```
+
+2. **Crear un entorno virtual (recomendado)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # En Windows: venv\Scripts\activate
+   ```
+
+3. **Instalar dependencias**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Descargar recursos de NLTK**
+   ```python
+   import nltk
+   nltk.download('stopwords')
+   nltk.download('punkt')
+   ```
+
+5. **Iniciar Jupyter Notebook**
+   ```bash
+   jupyter notebook
+   ```
+
+## 📊 Fases del Proyecto
+
+### ✅ Fase 1: Análisis Exploratorio de Datos (EDA)
+- **Notebook**: `notebooks/01_EDA.ipynb`
+- **Objetivos**:
+  - Cargar y explorar el dataset
+  - Analizar distribución de clases
+  - Explorar estadísticas de texto
+  - Identificar patrones y características
+  - Visualizar palabras frecuentes y n-gramas
+
+### 🔄 Fase 2: Preprocesamiento (En desarrollo)
+- Limpieza de texto
+- Normalización
+- Tokenización
+- Eliminación de stopwords
+
+### 🔄 Fase 3: Feature Engineering (Planificado)
+- Vectorización (TF-IDF, Bag-of-Words)
+- Embeddings (Word2Vec, GloVe)
+
+### 🔄 Fase 4: Modelado (Planificado)
+- Modelos baseline
+- Modelos avanzados
+- Optimización de hiperparámetros
+
+### 🔄 Fase 5: Despliegue (Planificado)
+- API REST
+- Interfaz web
+- Documentación de uso
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Python**: Lenguaje principal
+- **Pandas**: Manipulación de datos
+- **NumPy**: Operaciones numéricas
+- **Matplotlib/Seaborn**: Visualización
+- **NLTK**: Procesamiento de lenguaje natural
+- **Scikit-learn**: Machine learning
+- **Jupyter**: Notebooks interactivos
+
+## 📈 Análisis Exploratorio (EDA)
+
+El análisis exploratorio incluye:
+
+1. **Carga de datos**: Importación y validación del dataset
+2. **Análisis de calidad**: Detección de valores faltantes y duplicados
+3. **Distribución de clases**: Verificación de balance entre clases
+4. **Estadísticas de texto**: Longitud, palabras, caracteres
+5. **Análisis léxico**: Palabras frecuentes, n-gramas
+6. **Visualizaciones**: Gráficos, nubes de palabras, distribuciones
+
+Para más detalles, consulta el notebook `notebooks/01_EDA.ipynb`.
+
+## 📝 Datos
+
+Los datos deben colocarse en `data/raw/`. El formato esperado del dataset:
+
+| Columna | Descripción | Tipo |
+|---------|-------------|------|
+| text/comment | Texto del comentario | String |
+| label/class | Etiqueta (0: normal, 1: odio) | Integer |
+
+**Nota**: Los archivos de datos no se suben al repositorio (ver `.gitignore`).
+
+## 🤝 Contribución
+
+Este es un proyecto académico del Bootcamp IA-P5. Si eres parte del equipo:
+
+1. Crea una rama para tu trabajo: `git checkout -b feature/nueva-funcionalidad`
+2. Haz commits descriptivos: `git commit -m "Add: nueva funcionalidad"`
+3. Push a tu rama: `git push origin feature/nueva-funcionalidad`
+4. Crea un Pull Request
+
+## 📄 Licencia
+
+Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 👥 Autores
     
 - [José Andrés Lazaroth Núñez](https://github.com/Lazaroth93)  
 - [Mónica Gómez González](https://github.com/monigogo)   
 - [Yeder Johansen Pimentel Tapia](https://github.com/Yedpt)
 - [Alfonso Bermúdez Torres](https://github.com/GHalfbbt)
 
+---
+
+⭐ Si este proyecto te resulta útil, ¡considera darle una estrella!
