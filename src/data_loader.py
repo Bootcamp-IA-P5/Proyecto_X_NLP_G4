@@ -9,7 +9,7 @@ Este módulo proporciona funciones para:
 
 import pandas as pd
 from pathlib import Path
-from typing import Tuple, Optional
+from typing import Tuple, Optional, List
 
 
 class DataLoader:
@@ -46,7 +46,7 @@ class DataLoader:
     
     def validate_structure(self, df: pd.DataFrame, 
                           text_col: str = 'text',
-                          label_col: str = 'label') -> Tuple[bool, list]:
+                          label_col: str = 'label') -> Tuple[bool, List[str]]:
         """
         Valida la estructura básica del dataset.
         
