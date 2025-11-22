@@ -1,0 +1,5 @@
+# Este directorio debe contener los datos originales
+# Coloca aquí tu dataset de comentarios de YouTube
+# 
+# Formato esperado: CSV con columnas 'text' y 'label'
+# Ejemplo: youtube_comments.csv
