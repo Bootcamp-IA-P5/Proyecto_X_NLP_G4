@@ -1,4 +1,7 @@
 ### Python ###
+
+data/preprocessing_data/
+data/processed_eda/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
