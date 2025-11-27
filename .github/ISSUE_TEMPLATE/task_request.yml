@@ -3,7 +3,7 @@ description: Work on an assigned task (no code)
 title: "[Task]: "
 labels: ["task"]
 assignees: []
-# projects: [Bootcamp-IA-P5/22]
+projects: [Bootcamp-IA-P5/22]
 
 body:
   - type: markdown
