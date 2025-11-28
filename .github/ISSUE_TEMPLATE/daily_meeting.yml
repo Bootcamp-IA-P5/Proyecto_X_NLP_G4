@@ -3,6 +3,7 @@ description: Daily meeting summary
 title: "[Daily meeting]: "
 labels: ["daily"]
 assignees: []
+projects: [Bootcamp-IA-P5/22]
 
 body:
   - type: markdown
