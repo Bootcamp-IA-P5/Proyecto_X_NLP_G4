@@ -1,5 +1,5 @@
 {
-  "model_name": "naive_bayes_toxic_v1",
+  "model_name": "naive_bayes_multinomial_IsToxic",
   "task": "binary_classification",
   "target_label": "IsToxic",
   "data": {
@@ -23,6 +23,6 @@
     "fn": 37,
     "tp": 55
   },
-  "timestamp": "2025-11-28T02:11:06",
-  "notes": "Naive Bayes + TF-IDF (1,2) + 5 numeric features on text_classic"
+  "timestamp": "2025-11-28T23:31:46",
+  "notes": "Naive Bayes Multinomial; TF-IDF (1,2), max_features=10000; text_classic + 5 numeric features"
 }
