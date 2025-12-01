@@ -1,0 +1,28 @@
+{
+  "model_name": "svm_toxic_v1",
+  "task": "binary_classification",
+  "target_label": "IsToxic",
+  "data": {
+    "n_samples": 997,
+    "n_features_text": 1136,
+    "n_features_numeric": 5,
+    "train_size": 0.7993981945837513,
+    "test_size": 0.20060180541624875,
+    "random_state": 42
+  },
+  "metrics": {
+    "accuracy": 0.705,
+    "precision": 0.6941176470588235,
+    "recall": 0.6413043478260869,
+    "f1": 0.6666666666666666,
+    "roc_auc": 0.7606682769726247
+  },
+  "confusion_matrix": {
+    "tn": 82,
+    "fp": 26,
+    "fn": 33,
+    "tp": 59
+  },
+  "timestamp": "2025-12-01T09:00:24.702598",
+  "notes": "LinearSVC + TF-IDF (1,2) + 5 numeric features on text_classic"
+}
