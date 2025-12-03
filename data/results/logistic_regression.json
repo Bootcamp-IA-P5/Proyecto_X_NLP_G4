@@ -4,25 +4,25 @@
   "target_label": "IsToxic",
   "data": {
     "n_samples": 997,
-    "n_features_text": 3634,
+    "n_features_text": 2065,
     "n_features_numeric": 5,
     "train_size": 0.7993981945837513,
     "test_size": 0.20060180541624875,
     "random_state": 42
   },
   "metrics": {
-    "accuracy": 0.73,
-    "precision": 0.796875,
-    "recall": 0.5543478260869565,
-    "f1": 0.6538461538461539,
-    "roc_auc": 0.8034420289855072
+    "accuracy": 0.62,
+    "precision": 0.5563380281690141,
+    "recall": 0.8586956521739131,
+    "f1": 0.6752136752136753,
+    "roc_auc": 0.7777777777777778
   },
   "confusion_matrix": {
-    "tn": 95,
-    "fp": 13,
-    "fn": 41,
-    "tp": 51
+    "tn": 45,
+    "fp": 63,
+    "fn": 13,
+    "tp": 79
   },
-  "timestamp": "2025-12-02T15:11:53",
+  "timestamp": "2025-12-03T16:28:26",
   "notes": "Logistic Regression; TF-IDF + numeric features; max_iter=300"
 }
