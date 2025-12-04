@@ -1,0 +1,1 @@
+# config general (DB, rutas modelos)
