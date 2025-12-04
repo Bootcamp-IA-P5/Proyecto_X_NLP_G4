@@ -12,17 +12,17 @@
   },
   "metrics": {
     "accuracy": 0.62,
-    "precision": 0.5563380281690141,
-    "recall": 0.8586956521739131,
-    "f1": 0.6752136752136753,
-    "roc_auc": 0.7777777777777778
+    "precision": 0.5571428571428572,
+    "recall": 0.8478260869565217,
+    "f1": 0.6724137931034483,
+    "roc_auc": 0.7758655394524959
   },
   "confusion_matrix": {
-    "tn": 45,
-    "fp": 63,
-    "fn": 13,
-    "tp": 79
+    "tn": 46,
+    "fp": 62,
+    "fn": 14,
+    "tp": 78
   },
-  "timestamp": "2025-12-03T16:28:26",
+  "timestamp": "2025-12-04T18:44:16",
   "notes": "Logistic Regression; TF-IDF + numeric features; max_iter=300"
 }
