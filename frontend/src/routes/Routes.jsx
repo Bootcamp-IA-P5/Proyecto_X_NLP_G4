@@ -4,8 +4,8 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from "../layout/Layout";
 import About from "../pages/About";
 // import ModernModels from "../pages/ModernModels";
-// import Results from "../pages/Results";
-// import Settings from "../pages/Settings";
+import Results from "../pages/Results";
+import Settings from "../pages/Settings";
 import SvmPage from "../pages/SvmPage";
 import NaiveBayesPage from "../pages/NaiveBayesPage";
 import LogRegPage from "../pages/LogRegPage";
@@ -43,14 +43,14 @@ export const routes = createBrowserRouter([
       //   path: "modern-models",
       //   element: <ModernModels />,
       // },
-      // {
-      //   path: "results",
-      //   element: <Results />,
-      // },
-      // {
-      //   path: "settings",
-      //   element: <Settings />,
-      // },
+      {
+        path: "results",
+        element: <Results />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
     ],
   },
 
