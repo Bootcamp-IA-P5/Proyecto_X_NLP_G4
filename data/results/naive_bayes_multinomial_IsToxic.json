@@ -2,27 +2,58 @@
   "model_name": "naive_bayes_multinomial_IsToxic",
   "task": "binary_classification",
   "target_label": "IsToxic",
+  "model_status": "acceptable",
   "data": {
     "n_samples": 997,
-    "n_features_text": 2065,
+    "n_features_text": 254,
     "n_features_numeric": 5,
     "train_size": 0.7993981945837513,
     "test_size": 0.20060180541624875,
     "random_state": 42
   },
   "metrics": {
-    "accuracy": 0.76,
-    "precision": 0.8333333333333334,
-    "recall": 0.5978260869565217,
-    "f1": 0.6962025316455697,
-    "roc_auc": 0.8014291465378421
+    "accuracy": 0.735,
+    "precision": 0.76,
+    "recall": 0.6195652173913043,
+    "f1": 0.6826347305389222,
+    "roc_auc": 0.8064613526570048
+  },
+  "metrics_source": "test",
+  "overfitting_analysis": {
+    "status": "⚠️ OVERFITTING LEVE",
+    "level": "mild",
+    "train_metrics": {
+      "accuracy": 0.7716436637390214,
+      "precision": 0.8114478114478114,
+      "recall": 0.6566757493188011,
+      "f1": 0.7259036144578314,
+      "roc_auc": 0.8361700779418287
+    },
+    "test_metrics": {
+      "accuracy": 0.735,
+      "precision": 0.76,
+      "recall": 0.6195652173913043,
+      "f1": 0.6826347305389222,
+      "roc_auc": 0.8064613526570048
+    },
+    "differences": {
+      "accuracy_diff_pct": 3.6643663739021393,
+      "f1_diff_pct": 4.326888391890915,
+      "roc_auc_diff_pct": 2.9708725284823934
+    }
   },
   "confusion_matrix": {
-    "tn": 97,
-    "fp": 11,
-    "fn": 37,
-    "tp": 55
+    "tn": 90,
+    "fp": 18,
+    "fn": 35,
+    "tp": 57
   },
-  "timestamp": "2025-11-30T14:47:30",
-  "notes": "Naive Bayes Multinomial; TF-IDF (1,2), max_features=10000; text_classic + 5 numeric features"
+  "hyperparameters": {
+    "tfidf_max_features": 1000,
+    "tfidf_ngram_range": "(1, 1)",
+    "tfidf_min_df": 10,
+    "nb_alpha": 1.0
+  },
+  "timestamp": "2025-12-05T03:53:44",
+  "notes": "Naive Bayes Multinomial con GridSearchCV; TF-IDF ajustado + 5 features numéricas; métricas en test."
 }
