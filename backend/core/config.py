@@ -30,6 +30,11 @@ class Settings(BaseSettings):
     SVM_MODEL_PATH: Path = MODELS_DIR / "svm_toxic_v1.pkl"
     NB_MODEL_PATH: Path = MODELS_DIR / "naive_bayes_multinomial_IsToxic.pkl"
     LOGREG_MODEL_PATH: Path = MODELS_DIR / "logistic_regression.pkl"
+    RANDOM_FOREST_MODEL_PATH: Path = MODELS_DIR / "random_forest_IsToxic_manual_ultra.pkl"
+    
+    # Rutas a modelos de Deep Learning
+    DISTILBERT_MODEL_PATH: Path = MODELS_DIR / "distilbert_toxic_v1"
+    RNN_BIGRU_MODEL_PATH: Path = MODELS_DIR / "rnn_bigru_IsToxic_bigru_reg_export"
 
 
 settings = Settings()
