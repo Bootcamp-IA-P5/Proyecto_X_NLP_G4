@@ -1,0 +1,15 @@
+{
+  "model_name": "xlm-roberta-base",
+  "task": "Binary malicious text classification",
+  "labels": [
+    "Not malicious",
+    "Malicious"
+  ],
+  "train_size": 797,
+  "test_size": 200,
+  "metrics": {
+    "accuracy": 0.815,
+    "f1_macro": 0.8104459642921181
+  },
+  "timestamp": "20251210_152916"
+}

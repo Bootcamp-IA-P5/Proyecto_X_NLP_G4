@@ -10,6 +10,17 @@ import torch
 import re
 
 # -----------------------------
+# CONFIGURACIÓN GPU
+# -----------------------------
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"🚀 Usando dispositivo: {device}")
+if torch.cuda.is_available():
+    print(f"GPU detectada: {torch.cuda.get_device_name(0)}")
+    print(f"Memoria GPU disponible: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
+else:
+    print("⚠️ GPU no disponible, usando CPU")
+
+# -----------------------------
 # CONFIGURACIÓN
 # -----------------------------
 MODEL_NAME = "xlm-roberta-base"
@@ -109,6 +120,9 @@ model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME,
     num_labels=2
 )
+# Mover modelo a GPU si está disponible
+model = model.to(device)
+print(f"📱 Modelo cargado en: {model.device}")
 
 # -----------------------------
 # 8) Métricas
@@ -130,7 +144,7 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=BATCH_SIZE,
     learning_rate=LEARNING_RATE,
     num_train_epochs=EPOCHS,
-    evaluation_strategy="epoch",
+    eval_strategy="epoch",
     save_strategy="epoch",
     logging_steps=50,
 )
@@ -158,18 +172,24 @@ f1_macro = f1_score(y_test, pred_test, average="macro")
 # -----------------------------
 # 11) Guardar modelo y resultados
 # -----------------------------
+from pathlib import Path
+from datetime import datetime
+import json
+
+# Directorios existentes
 models_dir = Path("models")
 results_dir = Path("results")
-models_dir.mkdir(exist_ok=True)
-results_dir.mkdir(exist_ok=True)
 
+# Guardar modelo y tokenizer directamente en 'models/'
 model_dir = models_dir / "xlm_roberta_binary_toxic"
 trainer.save_model(model_dir)
 tokenizer.save_pretrained(model_dir)
 
+# Crear nombre de archivo JSON con timestamp
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 json_path = results_dir / f"xlm_roberta_binary_toxic_{timestamp}.json"
 
+# Estructura del archivo de resultados
 results_dict = {
     "model_name": MODEL_NAME,
     "task": "Binary malicious text classification",
@@ -183,7 +203,9 @@ results_dict = {
     "timestamp": timestamp
 }
 
+# Guardar resultados JSON directamente en 'results/'
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(results_dict, f, indent=2, ensure_ascii=False)
 
-print("JSON generado:", json_path)
+print(f"✅ Modelo guardado en: {model_dir}")
+print(f"✅ Resultados guardados en: {json_path}")
