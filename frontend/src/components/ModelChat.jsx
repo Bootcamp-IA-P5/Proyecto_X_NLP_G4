@@ -4,6 +4,9 @@ import {
   predictWithSVM,
   predictWithNaiveBayes,
   predictWithLogReg,
+  predictWithRandomForest,
+  predictWithDistilBERT,
+  predictWithRnnBigru,
 } from "../services/modelServices";
 
 // Frases de ejemplo para pruebas rápidas
@@ -38,6 +41,12 @@ const ModelChat = ({ modelKey }) => {
         response = await predictWithNaiveBayes(text);
       } else if (modelKey === "logreg") {
         response = await predictWithLogReg(text);
+      } else if (modelKey === "random_forest") {
+        response = await predictWithRandomForest(text);
+      } else if (modelKey === "distilbert") {
+        response = await predictWithDistilBERT(text);
+      } else if (modelKey === "rnn_bigru") {
+        response = await predictWithRnnBigru(text);
       } else {
         throw new Error(`Unknown modelKey: ${modelKey}`);
       }

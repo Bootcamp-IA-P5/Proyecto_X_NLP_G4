@@ -167,3 +167,128 @@ def predict_logistic_regression(
     except ValueError as e:
         raise HTTPException(status_code=500, detail=str(e))
     return pred
+
+
+@router.post("/random-forest", response_model=PredictionResponse)
+def predict_random_forest(
+    payload: PredictionRequest,
+    db: Session = Depends(get_db),
+):
+    """
+    Predicción usando Random Forest (modelo clásico con features tabulares).
+    """
+    try:
+        pred = _run_model_and_store("random_forest", payload.text, db)
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    return pred
+
+
+@router.post("/distilbert", response_model=PredictionResponse)
+def predict_distilbert(
+    payload: PredictionRequest,
+    db: Session = Depends(get_db),
+):
+    """
+    Predicción usando DistilBERT (transformer de HuggingFace).
+    """
+    import torch
+    
+    try:
+        distilbert = get_model("distilbert")
+        tokenizer = distilbert["tokenizer"]
+        model = distilbert["model"]
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    text = payload.text or ""
+    
+    # Tokenizar el texto
+    inputs = tokenizer(
+        text,
+        truncation=True,
+        padding="max_length",
+        max_length=128,
+        return_tensors="pt"
+    )
+    
+    # Predicción
+    model.eval()
+    with torch.no_grad():
+        outputs = model(**inputs)
+        logits = outputs.logits
+        probs = torch.softmax(logits, dim=-1)
+        pred_label = torch.argmax(probs, dim=-1).item()
+        confidence = probs[0][pred_label].item()
+    
+    # Guardar en BBDD
+    pred_row = Prediction(
+        model_name="distilbert",
+        input_text=text,
+        predicted_label=int(pred_label),
+        score=float(confidence),
+    )
+    db.add(pred_row)
+    db.commit()
+    db.refresh(pred_row)
+    
+    return pred_row
+
+
+@router.post("/rnn-bigru", response_model=PredictionResponse)
+def predict_rnn_bigru(
+    payload: PredictionRequest,
+    db: Session = Depends(get_db),
+):
+    """
+    Predicción usando RNN BiGRU (TensorFlow/Keras).
+    
+    El modelo incluye TextVectorization integrada, por lo que acepta texto crudo directamente.
+    Parámetros del modelo:
+    - MAX_WORDS: 10000 (vocabulario máximo)
+    - MAX_LEN: 120 (longitud de secuencia)
+    """
+    import numpy as np
+    import tensorflow as tf
+    
+    try:
+        model = get_model("rnn_bigru")
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    text = payload.text or ""
+    
+    try:
+        # El modelo RNN BiGRU tiene TextVectorization integrada
+        # La signature espera input con forma (batch_size, 1) de tipo string
+        text_input = tf.constant([[text]], dtype=tf.string)
+        
+        # Predicción usando TFSMLayer (serving_default endpoint)
+        # TFSMLayer requiere el argumento 'inputs' (no el nombre del tensor)
+        prediction = model(inputs=text_input)
+        
+        # El resultado es un diccionario con 'output_0' de forma (batch_size, 1)
+        output_value = prediction['output_0'].numpy()
+        
+        # Extraer el valor de probabilidad
+        confidence = float(output_value[0][0])
+        pred_label = int(confidence > 0.5)  # Threshold 0.5
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error running RNN BiGRU model: {str(e)}"
+        )
+    
+    # Guardar en BBDD
+    pred_row = Prediction(
+        model_name="rnn_bigru",
+        input_text=text,
+        predicted_label=pred_label,
+        score=confidence,
+    )
+    db.add(pred_row)
+    db.commit()
+    db.refresh(pred_row)
+    
+    return pred_row
