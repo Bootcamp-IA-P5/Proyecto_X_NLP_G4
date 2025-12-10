@@ -50,8 +50,16 @@ const Nav = () => {
           Logistic Regression
         </NavLink>
 
-        <NavLink to="/app/modern-models" className={linkClasses}>
-          Modelos modernos
+        <NavLink to="/app/random-forest" className={linkClasses}>
+          Random Forest
+        </NavLink>
+
+        <NavLink to="/app/distilbert" className={linkClasses}>
+          DistilBERT
+        </NavLink>
+
+        <NavLink to="/app/rnn-bigru" className={linkClasses}>
+          RNN BiGRU
         </NavLink>
 
         <NavLink to="/app/results" className={linkClasses}>

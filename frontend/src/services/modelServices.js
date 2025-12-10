@@ -31,3 +31,15 @@ export async function predictWithNaiveBayes(text) {
 export async function predictWithLogReg(text) {
   return callModelEndpoint("/predict/logreg", text);
 }
+
+export async function predictWithRandomForest(text) {
+  return callModelEndpoint("/predict/random-forest", text);
+}
+
+export async function predictWithDistilBERT(text) {
+  return callModelEndpoint("/predict/distilbert", text);
+}
+
+export async function predictWithRnnBigru(text) {
+  return callModelEndpoint("/predict/rnn-bigru", text);
+}
