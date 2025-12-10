@@ -12,11 +12,13 @@ import {
   PieChart,
   Pie,
   Cell,
+  LineChart,
+  Line,
 } from "recharts";
 import { MODEL_METRICS } from "../data/modelMetrics";
 
-// Colores para cada barra (un color por modelo)
-const BAR_COLORS = ["#6366f1", "#22c55e", "#f97316", "#ec4899"];
+// Colores para cada barra (un color por modelo - 6 modelos)
+const BAR_COLORS = ["#6366f1", "#22c55e", "#f97316", "#ec4899", "#8b5cf6", "#06b6d4"];
 
 // Colores para la dona (TN, FP, FN, TP)
 const PIE_COLORS = ["#22c55e", "#dc2626", "#eab308", "#64748b"];
@@ -36,6 +38,17 @@ const Results = () => {
       { name: "True Positives (TP)", value: bestModel.tp },
     ];
   }, [bestModel]);
+
+  // Datos para gráfico de líneas comparando todas las métricas
+  const multiMetricsData = useMemo(() => {
+    return MODEL_METRICS.map((model) => ({
+      name: model.name.split(" ")[0], // Abreviamos el nombre
+      Accuracy: model.accuracy,
+      Precision: model.precision,
+      Recall: model.recall,
+      "F1-Score": model.f1,
+    }));
+  }, []);
 
   return (
     <div className="h-full flex flex-col gap-8">
@@ -57,7 +70,7 @@ const Results = () => {
           <h3 className="text-sm font-semibold mb-2">Modelos evaluados</h3>
           <p className="text-3xl font-bold">{MODEL_METRICS.length}</p>
           <p className="text-xs text-slate-300 mt-1">
-            Modelos clásicos: Naive Bayes, Regresión Logística y SVM.
+            ML Clásico (SVM, Naive Bayes, LogReg, Random Forest) y Deep Learning (DistilBERT, RNN BiGRU).
           </p>
         </div>
 
@@ -103,14 +116,17 @@ const Results = () => {
           <h3 className="text-sm font-semibold mb-4">
             Comparación de F1-score por modelo
           </h3>
-          <div className="h-64">
+          <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={MODEL_METRICS}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize: 10, fill: "#e5e7eb" }}
+                  tick={{ fontSize: 9, fill: "#e5e7eb" }}
                   interval={0}
+                  angle={-15}
+                  textAnchor="end"
+                  height={80}
                 />
                 <YAxis
                   domain={[0, 1]}
@@ -187,6 +203,74 @@ const Results = () => {
               </ResponsiveContainer>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Nuevo gráfico: Comparación de todas las métricas */}
+      <section className="bg-slate-900 text-slate-100 rounded-3xl p-4 md:p-6 shadow-xl">
+        <h3 className="text-sm font-semibold mb-2">
+          Comparación multi-métrica de los 6 modelos
+        </h3>
+        <p className="text-[11px] text-slate-300 mb-4">
+          Visualización comparativa de Accuracy, Precision, Recall y F1-Score para todos los modelos.
+          Las líneas muestran el rendimiento de cada métrica a través de los 6 modelos.
+        </p>
+        <div className="h-80">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={multiMetricsData}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+              <XAxis
+                dataKey="name"
+                tick={{ fontSize: 10, fill: "#e5e7eb" }}
+                angle={-15}
+                textAnchor="end"
+                height={60}
+              />
+              <YAxis
+                domain={[0, 1]}
+                tick={{ fontSize: 10, fill: "#e5e7eb" }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#fffafa",
+                  border: "1px solid #1e293b",
+                  fontSize: "11px",
+                  color: "#1e293b",
+                }}
+              />
+              <Legend
+                wrapperStyle={{ fontSize: "11px", color: "#e5e7eb" }}
+              />
+              <Line
+                type="monotone"
+                dataKey="Accuracy"
+                stroke="#6366f1"
+                strokeWidth={2}
+                dot={{ r: 4 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="Precision"
+                stroke="#22c55e"
+                strokeWidth={2}
+                dot={{ r: 4 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="Recall"
+                stroke="#f97316"
+                strokeWidth={2}
+                dot={{ r: 4 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="F1-Score"
+                stroke="#ec4899"
+                strokeWidth={2}
+                dot={{ r: 4 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       </section>
 
