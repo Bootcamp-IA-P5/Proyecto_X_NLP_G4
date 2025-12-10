@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Opcional: estilo para scroll del chat */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.5); /* slate-400 */
+  border-radius: 9999px;
+}

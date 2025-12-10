@@ -1,0 +1,28 @@
+{
+  "model_name": "distilbert_toxic_v1",
+  "task": "binary_classification",
+  "target_label": "IsToxic",
+  "data": {
+    "n_samples": 997,
+    "n_train": 797,
+    "n_test": 200,
+    "train_size": 0.7993981945837513,
+    "test_size": 0.20060180541624875,
+    "random_state": 42
+  },
+  "metrics": {
+    "accuracy": 0.8,
+    "precision": 0.782608695652174,
+    "recall": 0.782608695652174,
+    "f1": 0.782608695652174,
+    "roc_auc": 0.8649355877616747
+  },
+  "confusion_matrix": {
+    "tn": 88,
+    "fp": 20,
+    "fn": 20,
+    "tp": 72
+  },
+  "timestamp": "2025-12-10T13:43:13.161030",
+  "notes": "DistilBERT fine-tuned on text_basic for hate speech detection"
+}
