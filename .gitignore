@@ -2,6 +2,11 @@
 
 data/preprocessing_data/
 data/processed_eda/
+
+# Modelos entrenados y archivos de entrenamiento de DistilBERT
+backend/models/distilbert_toxic_v1/
+distilbert_training_outputs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
