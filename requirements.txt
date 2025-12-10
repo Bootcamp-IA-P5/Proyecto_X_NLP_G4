@@ -37,3 +37,6 @@ tqdm>=4.65.0
 
 # Statistical analysis
 scipy>=1.11.0
+
+# Hyperparameter optimization
+optuna>=3.0.0

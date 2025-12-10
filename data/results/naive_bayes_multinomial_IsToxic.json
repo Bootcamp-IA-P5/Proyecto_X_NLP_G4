@@ -54,6 +54,6 @@
     "tfidf_min_df": 10,
     "nb_alpha": 1.0
   },
-  "timestamp": "2025-12-05T03:53:44",
+  "timestamp": "2025-12-07T15:46:28",
   "notes": "Naive Bayes Multinomial con GridSearchCV; TF-IDF ajustado + 5 features numéricas; métricas en test."
 }
