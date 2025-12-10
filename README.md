@@ -25,7 +25,7 @@
 
 </div>
 
-Este proyecto implementa un **pipeline completo de detección de comentarios tóxicos** utilizando 6 modelos de machine learning diferentes, desde algoritmos clásicos hasta transformers de última generación. Construido con un backend FastAPI y frontend React, el sistema proporciona predicciones en tiempo real con puntuaciones de confianza detalladas y comparaciones entre modelos.
+Este proyecto aplica un **pipeline completo de detección de comentarios tóxicos** utilizando 6 modelos de machine learning diferentes, desde algoritmos clásicos hasta transformers de última generación. Construido con un backend FastAPI y frontend React, el sistema proporciona predicciones en tiempo real con puntuaciones de confianza detalladas y comparaciones entre modelos.
 
 <div align="center">
 
