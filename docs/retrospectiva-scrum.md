@@ -126,25 +126,19 @@ Antes de la sesión, el equipo revisó:
 - **Impacto**: Miedo a refactorizar código porque no sabemos si romperemos algo. Bugs que llegan hasta el final del desarrollo.
 - **Cómo soltar el ancla**: Implementar pytest con al menos 60% de cobertura en endpoints críticos antes de continuar con nuevas features.
 
-#### **2. Commits sin mensajes descriptivos**
-
-- **Ancla identificada**: Commits genéricos como "fix", "update", "changes" que no explican qué se cambió ni por qué.
-- **Impacto**: Difícil entender el historial del proyecto. Imposible saber cuándo se introdujo un bug específico.
-- **Cómo soltar el ancla**: Adoptar convención de commits (ej: `feat:`, `fix:`, `docs:`) y usar pre-commit hooks para validar formato.
-
-#### **3. Integración tardía de componentes**
+#### **2. Integración tardía de componentes**
 
 - **Ancla identificada**: Frontend y backend se integraron casi al final. MLflow llegó en las últimas semanas.
 - **Impacto**: Retrabajos masivos de última hora. Estrés innecesario. Descubrimiento tardío de incompatibilidades.
 - **Cómo soltar el ancla**: Integración continua desde el Sprint 1. "Integrar temprano, integrar frecuentemente".
 
-#### **4. Hardcodeo de credenciales y configuraciones**
+#### **3. Hardcodeo de credenciales y configuraciones**
 
 - **Ancla identificada**: Encontramos API keys, contraseñas de BD y rutas absolutas directamente en el código.
 - **Impacto**: Riesgo de seguridad grave. Código no portable entre máquinas. Credenciales expuestas en Git.
 - **Cómo soltar el ancla**: Usar `.env` desde el día 1, con `.env.example` como plantilla y `.env` en `.gitignore`.
 
-#### **5. Notebooks sin estructura modular (mezcla de fases)**
+#### **4. Notebooks sin estructura modular (mezcla de fases)**
 
 - **Ancla identificada**: Notebooks muy largos que duplican código.
 - **Impacto**: Difícil reutilizar código. Ejecutar todo el notebook cada vez que cambias una línea. Dificulta colaboración.
@@ -211,7 +205,6 @@ Antes de la sesión, el equipo revisó:
 - ✅ Dailies de 15 minutos (Lun/Mié/Vie) para sincronizar
 - ✅ Code reviews obligatorios antes de merge (mínimo 1 aprobación)
 - ✅ Retrospectivas cada 2 semanas para ajustar el rumbo
-- ✅ Product Owner claro que prioriza el backlog
 - ✅ Definition of Done establecida y respetada
 
 **🏝️ En lo Cultural:**
@@ -389,13 +382,13 @@ La técnica fue **muy efectiva** para identificar impulsos, frenos y riesgos de 
 
 | Métrica | Valor |
 |---------|-------|
-| **Commits totales** | [Número de commits en Git] |
-| **Pull Requests mergeados** | [Número de PRs] |
-| **Issues cerrados** | [Número de issues] |
+| **Commits totales** | 102 commits |
+| **Pull Requests mergeados** | 7 PRs |
+| **Issues cerrados** | 23 issues |
 | **Modelos de ML entrenados** | 6 (NB, RF, SVM, LR, RNN-BiGRU, DistilBERT) |
-| **Accuracy del mejor modelo** | [XX.XX%] |
-| **Líneas de código (Backend)** | [Aproximado] |
-| **Componentes de Frontend** | [Número de componentes React] |
+| **Accuracy del mejor modelo** | [0.80%] |
+| **Líneas de código (Backend)** | 1007043 total |
+| **Componentes de Frontend** | 10 |
 | **Cobertura de tests** | 0% (a mejorar en próximo proyecto) |
 
 ---

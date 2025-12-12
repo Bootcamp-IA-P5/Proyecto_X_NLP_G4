@@ -38,7 +38,6 @@ Técnica utilizada: Barco de Vela / Barco Pirata (metáfora visual)
 
 ### 3.2 Anclas — ¿Qué nos frena?
 - Falta de tests en backend; poca confianza al refactorizar.
-- Commits poco descriptivos; difícil rastrear cambios.
 - Integración tardía (frontend–backend) generó retrabajos.
 - Configuración/credenciales hardcodeadas; riesgos de seguridad y portabilidad.
 - Notebooks monolíticos; difícil reutilización y colaboración.
