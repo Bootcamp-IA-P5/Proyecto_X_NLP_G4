@@ -6,7 +6,7 @@
 
 **Equipo**: Grupo 4 - PX_NLP_G4  
 **Proyecto**: Sistema de Detección de Comentarios Tóxicos  
-**Repositorio**: https://github.com/[tu-org]/PX_NLP_G4  
+**Repositorio**: https://github.com/Bootcamp-IA-P5/Proyecto_X_NLP_G4 
 **Duración del Proyecto**: 18 días  
 **Fecha Retrospectiva**: 12 de Diciembre de 2025  
 **Participantes**: Mónica, Yeder, Alfonso.
