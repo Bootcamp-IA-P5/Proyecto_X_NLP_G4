@@ -1,0 +1,43 @@
+// src/pages/SvmPage.jsx
+import React from "react";
+import ModelChat from "../components/ModelChat";
+
+const SvmPage = () => {
+  return (
+    <div className="max-w-6xl mx-auto h-full flex flex-col gap-6">
+      <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-50 tracking-tight">
+            Support Vector Machine (SVM)
+          </h2>
+          <p className="text-slate-400 text-sm mt-1">
+            Modelo clásico con TF-IDF y features numéricas. Bueno en espacios de
+            alta dimensión.
+          </p>
+        </div>
+      </header>
+
+      <section className="flex-1 grid grid-cols-1 lg:grid-cols-[2.5fr_1fr] gap-6">
+        <div className="bg-slate-900/80 border border-slate-800 rounded-3xl shadow-xl p-4 md:p-6 flex flex-col">
+          <p className="text-xs text-slate-400 mb-3">
+            Escribe un comentario y el modelo SVM decidirá si es tóxico (1) o
+            no tóxico (0).
+          </p>
+          <ModelChat modelKey="svm" />
+        </div>
+
+        <aside className="bg-slate-900/80 border border-slate-800 rounded-3xl shadow-xl p-5 text-xs text-slate-300 space-y-2">
+          <h3 className="text-sm font-semibold text-slate-100">
+            Sobre este modelo
+          </h3>
+          <p>
+            SVM es muy potente cuando trabajamos con vectores de alta dimensión
+            como los generados por TF-IDF.
+          </p>
+        </aside>
+      </section>
+    </div>
+  );
+};
+
+export default SvmPage;
